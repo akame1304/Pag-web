@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buon Compleanno!</title>
+  <style>
+    /* Impostazioni base per centrare e sfondo */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: sans-serif;
+    }
+    #container {
+      text-align: center;
+      padding: 20px;
+    }
+    /* Stile del pulsante */
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #ffffff;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    button:active {
+      transform: scale(0.95);
+    }
+    /* Messaggio nascosto inizialmente */
+    #message {
+      margin-top: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ffffff;
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    /* Keyframes per animazione pop */
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    /* Quando compare il messaggio */
+    #message.show {
+      animation: pop 0.6s ease forwards;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <button id="btn">Premi qui!</button>
+    <div id="message">Tanti auguri di buon compleanno!</div>
+  </div>
+  <script>
+    // Al click del pulsante mostra il messaggio e disabilita il pulsante
+    document.getElementById('btn').addEventListener('click', function() {
+      const msg = document.getElementById('message');
+      msg.classList.add('show');
+      this.disabled = true;
+    });
+  </script>
+</body>
+</html>
